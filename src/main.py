@@ -1,4 +1,5 @@
 from src.Models.Character import Character, Base, URL
+from src.Views.defineCharacterName import defineName
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 from sqlalchemy import create_engine
 
@@ -12,8 +13,8 @@ def main():
     Session = sessionmaker(engine, expire_on_commit=False)
 
     with Session.begin() as session:
-        character = Character(nome="Parry", level= "1" , exp="10", damage="20", life="100", classe="Archiever")
-
+        nome = defineName()
+        character = Character(nome=nome, level= "1" , exp="10", damage="20", life="100", classe='')
         session.add(character)
 
 
