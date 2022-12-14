@@ -1,6 +1,6 @@
 
 def defineName():
-    print("Crating Character")
+    print("Creating Character")
     nome = input("Please enter you character name: ")
     return nome
 

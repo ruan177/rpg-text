@@ -15,13 +15,13 @@ class Character(Base):
     __tablename__ = "Character"
     id_character = Column(Integer, primary_key=True)
     nome = Column(String(150), nullable=False)
-    level = Column(String(150), nullable=False)
-    exp = Column(String(150), nullable=False)
-    damage = Column(String(150), nullable=False)
-    life = Column(String(150), nullable=False)
+    hp = Column(Integer, nullable=False)
+    level = Column(Integer, nullable=False)
+    forca = Column(Integer, nullable=False)
+    destreza = Column(Integer, nullable=False)
     classe = Column(String(150), nullable=False)
 
 
     def __str__(self):
-        return "Character(id_character={}, nome=\"{}\", level=\"{}\", exp=\"{}\", damage=\"{}\", life=\"{}\", classe=\"{}\")".format(
-            self.id_character, self.nome, self.level, self.exp, self.damage, self.life, self.classe)
+        return "Character(id_character={}, nome=\"{}\", hp=\"{}\", level=\"{}\", forca=\"{}\", destreza=\"{}\", classe=\"{}\")".format(
+            self.id_character, self.nome, self.hp, self.level, self.forca, self.destreza, self.classe)

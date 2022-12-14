@@ -1,7 +1,8 @@
 from src.Models.Character import Character, Base, URL
 from src.Views.defineCharacterName import defineName
+from src.Views.defineClasse import escolheClasse
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select
 
 Character()
 def main():
@@ -14,9 +15,13 @@ def main():
 
     with Session.begin() as session:
         nome = defineName()
-        character = Character(nome=nome, level= "1" , exp="10", damage="20", life="100", classe='')
+        classe = escolheClasse()
+        character = Character(nome=nome, hp= 100 , level=1, forca=20, destreza=15, classe=classe)
         session.add(character)
 
+    with Session.begin() as session:
+        character = session.query(Character).get(1)
+        print(character)
 
 if __name__ == "__main__":
     main()
